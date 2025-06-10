@@ -1,0 +1,109 @@
+/* html {
+	scroll-behavior: smooth;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-in-delayed {
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 1.2s;
+}
+
+.fade-in-late {
+	animation: fadeIn 1s ease-out forwards;
+	animation-delay: 2s;
+}
+.fade-out {
+	opacity: 0;
+	transform: translateY(-20px);
+	transition: all 0.8s ease-in-out;
+} */
+/* Шрифты уже подключены через Google Fonts, здесь базовые стили и эффекты */
+
+/* Fade-in анимация */
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+.fade-in {
+	animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-delayed {
+	animation: fadeIn 1.5s ease forwards;
+	animation-delay: 1s;
+	opacity: 0;
+}
+
+/* Стили для body и текста */
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #fefaef;
+	margin: 0;
+	padding: 0;
+}
+
+/* Заголовки с кастомным шрифтом */
+h1,
+h2 {
+	font-family: 'Playfair Display SC', serif;
+}
+
+/* Фото с обводкой и тенями */
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 0.5rem;
+}
+
+/* Кнопка музыки */
+#musicToggle {
+	user-select: none;
+}
+
+#musicToggle img {
+	transition: transform 0.3s ease;
+}
+
+#musicToggle.playing img {
+	transform: rotate(15deg);
+}
+
+/* Таймер */
+#countdown div {
+	min-width: 60px;
+	border-radius: 0.5rem;
+	border: 2px solid white;
+	padding: 10px 15px;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Сетка для календаря */
+.grid {
+	user-select: none;
+}
+
+/* Мелкие поправки */
+section {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
