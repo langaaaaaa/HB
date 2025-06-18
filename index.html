@@ -6,45 +6,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Ынтымак & Эльназ</title>
 
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display+SC:wght@400;700;900&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Tailwind -->
 		<script src="https://cdn.tailwindcss.com"></script>
 
-		<style>
-			.fade-in {
-				animation: fadeIn 1s ease forwards;
-			}
-
-			.fade-in-delayed {
-				animation: fadeIn 1s ease forwards;
-				animation-delay: 1s;
-			}
-
-			.fade-in-late {
-				animation: fadeIn 1s ease forwards;
-				animation-delay: 1.8s;
-			}
-
-			@keyframes fadeIn {
-				from {
-					opacity: 0;
-					transform: translateY(20px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-		</style>
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="style.css" />
 	</head>
 
 	<body class="bg-[#fefaef] min-h-screen overflow-x-hidden">
 		<section id="intro"></section>
-		<!-- Основной блок -->
+
 		<div id="page-content" class="transition-opacity duration-1000 opacity-100">
 			<div
 				class="bg-[#820201] h-[200px] text-center relative z-0 opacity-0 fade-in"
@@ -68,12 +47,11 @@
 					class="bg-[#820201] z-1 w-[105px] h-[105px] rounded-full flex justify-center items-center absolute top-[200px] opacity-0 fade-in-late"
 				>
 					<div
-						class="flex items-center justify-center w-[95px] h-[95px] text-center border rounded-full border-white"
+						class="flex items-center justify-center w-[95px] h-[95px] text-center border rounded-full border-white heartbeat-slow"
 						id="open-invitation"
 					>
 						<p
 							class="font-['Playfair_Display_SC'] text-white text-[13px] px-2 leading-tight"
-							id="musicToggle"
 						>
 							Чакырууну ачуу
 						</p>
@@ -82,44 +60,21 @@
 			</div>
 
 			<div
-				class="text-center font-['Playfair_Display_SC'] uppercase font-semibold opacity-0 fade-in-late"
+				class="text-center font-['Playfair_Display_SC'] uppercase font-semibold fade-on-scroll"
 			>
 				<p>Биз күткөн күн да келди</p>
 				<p class="text-[#820201]">— биз үйлөнүп жатабыз!</p>
 			</div>
 		</div>
+
 		<audio
 			id="introAudio"
 			src="/Maher_Zain_For_the_rest_of_my_life.mp3"
 			preload="auto"
 			loop
 		></audio>
-		<script>
-			const openBtn = document.getElementById('openBtn')
-			const intro = document.getElementById('intro')
-			const audio = document.getElementById('introAudio')
 
-			openBtn.addEventListener('click', e => {
-				e.preventDefault()
-
-				// Пытаемся воспроизвести музыку
-				audio.play().catch(err => {
-					console.warn('Автовоспроизведение заблокировано:', err)
-				})
-
-				// Сохраняем флаг для следующей страницы
-				localStorage.setItem('playMusic', 'true')
-
-				// Плавное исчезновение
-				intro.classList.remove('opacity-100')
-				intro.classList.add('opacity-0')
-
-				setTimeout(() => {
-					window.location.href = 'invitation.html'
-				}, 1000)
-			})
-		</script>
-
-		<script src="./script.js"></script>
+		<!-- Custom Script -->
+		<script src="./index.js"></script>
 	</body>
 </html>

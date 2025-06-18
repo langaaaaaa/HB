@@ -3,12 +3,12 @@ const calendar = document.getElementById('calendar')
 const daysHtml = [...Array(31)]
 	.map((_, i) => {
 		const day = i + 1
-		if (day === 20) {
+		if (day === 22) {
 			return `
-      <div class="relative">
-        <p class="absolute z-10 text-white">${day}</p>
-        <img src="./img/Group_19.svg" class="absolute bottom-[-4px] right-[7px] w-[38px] z-1" />
-      </div>
+				<div class="relative">
+					<p class="z-10 relative text-white">${day}</p>
+					<img src="./img/Group_19.svg" class="absolute bottom-[-4px] right-0 w-[38px] z-0" />
+				</div>
     `
 		} else {
 			return `<div>${day}</div>`
@@ -26,19 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		.forEach(el => (el.style.opacity = '1'))
 })
 
-// Управление музыкой
-const musicToggle = document.getElementById('musicToggle')
-const bgMusic = document.getElementById('bgMusic')
 
-musicToggle.addEventListener('click', () => {
-	if (bgMusic.paused) {
-		bgMusic.play()
-		musicToggle.classList.add('playing')
-	} else {
-		bgMusic.pause()
-		musicToggle.classList.remove('playing')
-	}
-})
 
 // Таймер обратного отсчёта
 function countdownTimer() {
@@ -73,3 +61,19 @@ function countdownTimer() {
 
 setInterval(countdownTimer, 1000)
 countdownTimer() // запуск сразу при загрузке
+
+// Появление при скролле
+function handleScrollAnimation() {
+	const fadeEls = document.querySelectorAll('.fade-in-on-scroll')
+	const windowBottom = window.innerHeight
+
+	fadeEls.forEach(el => {
+		const rect = el.getBoundingClientRect()
+		if (rect.top < windowBottom - 60) {
+			el.classList.add('visible')
+		}
+	})
+}
+
+window.addEventListener('scroll', handleScrollAnimation)
+window.addEventListener('DOMContentLoaded', handleScrollAnimation)
