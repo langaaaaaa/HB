@@ -16,63 +16,279 @@
 
 		<!-- Tailwind -->
 		<script src="https://cdn.tailwindcss.com"></script>
-
+		<!-- <link rel="stylesheet" href="./style.css" /> -->
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="style.css" />
+		<style>
+			.fade-in-on-scroll {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 1s ease-out, transform 1s ease-out;
+			}
+
+			.fade-in-on-scroll.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		</style>
 	</head>
 
 	<body class="bg-[#fefaef] min-h-screen overflow-x-hidden">
 		<section id="intro"></section>
 
+		<audio
+			id="introAudio"
+			src="/Mot_-_Svadebnaya.mp3"
+			preload="auto"
+			loop
+		></audio>
+
 		<div id="page-content" class="transition-opacity duration-1000 opacity-100">
 			<div
-				class="bg-[#820201] h-[200px] text-center relative z-0 opacity-0 fade-in"
+				class="bg-[#820201] h-[200px] text-center relative z-0 fade-in"
 				style="clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 90%)"
 			>
-				<h1
-					class="font-['Great_Vibes'] text-white text-4xl pt-6 fade-in-delayed opacity-0"
-				>
-					Чакыруу!
+				<h1 class="font-['Great_Vibes'] text-white text-4xl pt-6 fade-in">
+					Приглашение!
 				</h1>
 			</div>
 
 			<div class="flex justify-center relative h-[320px]">
 				<img
 					src="./img/494827750_552595851047333_5963306807963872731_n.jpg"
-					class="w-[200px] border-[4px] border-white absolute top-[-100px] opacity-0 fade-in-delayed"
+					class="w-[200px] border-[4px] border-white absolute top-[-100px] fade-in"
 					alt=""
 				/>
 				<button
 					id="openBtn"
-					class="bg-[#820201] z-1 w-[105px] h-[105px] rounded-full flex justify-center items-center absolute top-[200px] opacity-0 fade-in-late"
+					class="bg-[#820201] z-1 w-[115px] h-[115px] rounded-full flex justify-center items-center absolute top-[200px] fade-in-late"
 				>
 					<div
-						class="flex items-center justify-center w-[95px] h-[95px] text-center border rounded-full border-white heartbeat-slow"
+						class="flex items-center justify-center w-[105px] h-[105px] text-center border rounded-full border-white heartbeat-slow"
 						id="open-invitation"
 					>
 						<p
 							class="font-['Playfair_Display_SC'] text-white text-[13px] px-2 leading-tight"
 						>
-							Чакырууну ачуу
+							Открыть приглашение
 						</p>
 					</div>
 				</button>
 			</div>
 
 			<div
-				class="text-center font-['Playfair_Display_SC'] uppercase font-semibold fade-on-scroll"
+				class="text-center font-['Playfair_Display_SC'] uppercase font-semibold fade-in"
 			>
-				<p>Биз күткөн күн да келди</p>
-				<p class="text-[#820201]">— биз үйлөнүп жатабыз!</p>
+				<p>И этот день настал!</p>
+				<p class="text-[#820201]">— мы женимся</p>
 			</div>
 		</div>
 
-		<audio
-			id="introAudio"
-			src="/Maher_Zain_For_the_rest_of_my_life.mp3"
-			preload="auto"
-			loop
-		></audio>
+		<div
+			id="main-content"
+			class="hidden opacity-0 transition-opacity duration-1000"
+		>
+			<header
+				class="bg-[#820201] h-[200px] text-center relative z-0 fade-in"
+				style="clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 90%)"
+			>
+				<h1
+					class="font-['Great_Vibes'] text-white text-4xl pt-6 fade-in-delayed"
+				>
+					Wedding day
+				</h1>
+				<h2
+					class="font-['Great_Vibes'] text-white text-2xl pt-3 fade-in-delayed"
+				>
+					22.07.2025
+				</h2>
+			</header>
+
+			<!-- Фото, имена и кнопка музыки -->
+			<section
+				class="flex justify-center relative h-[320px] mt-6 fade-in-on-scroll"
+			>
+				<img
+					src="./img/494827750_552595851047333_5963306807963872731_n.jpg"
+					class="w-[200px] border-[4px] border-white absolute top-[-100px] fade-in-delayed"
+					alt="Фото пары"
+				/>
+				<div class="mt-[280px] text-center font-['Playfair_Display_SC']">
+					<p class="uppercase font-semibold text-[#820201] text-2xl italic">
+						Ынтымак <span class="mx-2">&</span> Эльназ
+					</p>
+					<p class="font-['Montserrat'] text-xl font-medium mt-3">
+						Мы будем счастливы видеть вас в день нашей свадьбы!
+					</p>
+					<div class="flex justify-center mt-3">
+						<img src="./img/Group_19.svg" alt="divider" />
+					</div>
+					<!-- Музыка -->
+					<div
+						id="musicToggle"
+						class="flex flex-col items-center mt-6 cursor-pointer select-none"
+					>
+						<img
+							id="musicIcon"
+							src="./img/_1_9_11.svg"
+							alt="Музыка"
+							class="w-8 h-8"
+						/>
+						<p class="font-['Montserrat'] text-xl font-medium text-[#820201]">
+							Вкл/выкл музыку
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Календарь -->
+			<section class="mt-[220px] text-center fade-in-on-scroll">
+				<h1
+					class="text-2xl font-bold text-[#820201] font-['Playfair_Display_SC']"
+				>
+					2025
+				</h1>
+				<div
+					class="flex justify-center gap-5 font-['Montserrat'] text-[22px] mt-3 italic font-medium"
+				>
+					<p class="text-[#979797]">Июнь</p>
+					<p class="border-x-2 px-3 border-[#820201]">Июль</p>
+					<p class="text-[#979797]">Август</p>
+				</div>
+				<div
+					id="calendar"
+					class="grid grid-cols-7 gap-3 max-w-[300px] mx-auto mt-6 text-[16px] font-medium font-['Montserrat'] text-[#333]"
+				></div>
+			</section>
+
+			<!-- Локация -->
+			<section
+				class="bg-[#820201] text-center text-white mt-5 p-3 fade-in-on-scroll"
+			>
+				<h1 class="font-['Playfair_Display_SC'] text-2xl italic py-3">Место</h1>
+				<div class="flex justify-center">
+					<img
+						src="./img/d17f6cb7-b156-4d0a-94c4-9734ff54d1ea_656x340.jpg"
+						alt="Зал"
+						class="border-4 w-[90%]"
+					/>
+				</div>
+				<p class="font-['Great_Vibes'] text-xl mt-3">Ресторан</p>
+				<p class="font-[Playfair_Display_SC]">"AYAR GRAND HALL"</p>
+				<p class="font-[Playfair_Display_SC] text-[12px]">
+					г. Бишкек, с.Новопавловка, Фрунзе 133
+				</p>
+			</section>
+
+			<!-- Карта -->
+			<section class="w-full flex justify-center px-4 mt-10 fade-in-on-scroll">
+				<div
+					class="w-full max-w-[360px] sm:max-w-[480px] rounded-xl overflow-hidden"
+				>
+					<script
+						charset="utf-8"
+						src="https://widgets.2gis.com/js/DGWidgetLoader.js"
+					></script>
+					<script>
+						new DGWidgetLoader({
+							width: '100%',
+							height: 360,
+							borderColor: '#a3a3a3',
+							pos: { lat: 42.877851, lon: 74.5055, zoom: 15 },
+							opt: { city: 'bishkek' },
+							org: [{ id: '70000001090743355' }],
+						})
+					</script>
+				</div>
+			</section>
+
+			<!-- Благодарность -->
+			<section class="text-center mt-3 px-4 fade-in-on-scroll">
+				<h1
+					class="font-['Playfair_Display_SC'] text-2xl italic py-3 text-[#820201]"
+				>
+					Дорогие наши гости !
+				</h1>
+				<p class="font-['Montserrat'] text-[15px] font-medium">
+					С любовью в сердце и трепетом в душеприглашаем вас стать частью
+					особенного события - дня, с которого начинается наша семейная история.
+					Пусть этот день станет не только важным для нас,но и тёплым
+					воспоминанием для всех, кто рядом.
+					<br />
+					Ынтымак & Эльназ
+				</p>
+			</section>
+
+			<section class="mt-3 fade-in-on-scroll">
+				<div class="flex justify-evenly">
+					<img
+						class="w-[150px] h-[200px] border-[2px] border-[#820201] rounded-[8px] rotate-[3deg]"
+						src="./img/photo_2025-06-18_21-37-29.jpg"
+						alt=""
+					/>
+					<img
+						class="w-[150px] h-[200px] object-cover border-[2px] rounded-[8px] -rotate-[3deg] border-[#820201]"
+						src="./img/photo_2025-06-18_21-37-30.jpg"
+						alt=""
+					/>
+				</div>
+			</section>
+
+			<!-- Телеграм -->
+			<section class="text-center mt-3 fade-in-on-scroll">
+				<h1
+					class="font-['Playfair_Display_SC'] text-2xl italic py-3 text-[#820201]"
+				>
+					Фото со свадьбы
+				</h1>
+				<p class="font-['Montserrat'] text-[15px] font-medium">
+					Дорогие гости! <br />
+					Мы создали группу в телеграмм, туда можно добовлять фото со свадьбы.
+					Давайте поделимся друг с другом счастливыми моментами этого
+					прекрассного дня!
+				</p>
+				<div class="flex justify-center my-5">
+					<a href="https://t.me/+tA03idRZaE0zNzMy"
+						><img src="./img/ic_baseline-telegram.svg" alt="Telegram"
+					/></a>
+				</div>
+			</section>
+
+			<!-- Таймер -->
+			<section
+				class="bg-[#820201] text-center relative z-0 fade-in-on-scroll p-5"
+				style="clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%)"
+			>
+				<h2
+					class="font-['Playfair_Display_SC'] text-2xl italic py-3 text-white pt-5"
+				>
+					Жолугушууга чейин калды:
+				</h2>
+				<div
+					id="countdown"
+					class="flex justify-center items-center gap-4 text-white text-2xl sm:text-3xl font-bold font-['Montserrat']"
+				>
+					<div class="border p-3">
+						<p id="days">00</p>
+						<span class="text-sm">күн</span>
+					</div>
+					<p>:</p>
+					<div class="border p-3">
+						<p id="hours">00</p>
+						<span class="text-sm">саат</span>
+					</div>
+					<p>:</p>
+					<div class="border p-3">
+						<p id="minutes">00</p>
+						<span class="text-sm">мүнөт</span>
+					</div>
+					<p>:</p>
+					<div class="border p-3">
+						<p id="seconds">00</p>
+						<span class="text-sm">сек.</span>
+					</div>
+				</div>
+			</section>
+		</div>
 
 		<!-- Custom Script -->
 		<script src="./index.js"></script>
