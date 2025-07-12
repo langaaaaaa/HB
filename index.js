@@ -136,7 +136,7 @@
 
 // 	// Таймер обратного отсчёта
 // 	function countdownTimer() {
-// 		const targetDate = new Date('2025-07-22T00:00:00')
+// 		const targetDate = new Date('2025-08-31T00:00:00')
 // 		const now = new Date()
 // 		const diff = targetDate - now
 
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			.fill(0)
 			.map((_, i) => {
 				const day = i + 1
-				if (day === 22) {
+				if (day === 27) {
 					return `
 					<div class="relative">
 						<p class="z-10 relative text-white">${day}</p>
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Таймер
 	function countdownTimer() {
-		const targetDate = new Date('2025-07-22T00:00:00')
+		const targetDate = new Date('2025-08-30T00:00:00')
 		const now = new Date()
 		const diff = targetDate - now
 		if (diff <= 0) {
